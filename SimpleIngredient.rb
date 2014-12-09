@@ -1,0 +1,3 @@
+class SimpleIngredient
+
+end
