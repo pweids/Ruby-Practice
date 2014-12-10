@@ -1,8 +1,8 @@
 class Gear
 	attr_reader :chainrig, :cog, :wheel
 	def initialize(args)
-		@chainrig = args[:chainrig] || 40
-		@cog 			= args[:cog] || 18
+		@chainrig = args.fetch(:chainrig, 40)
+		@cog 			= args.fetch(:cog, 18)
 		@wheel		= args[:wheel]
 	end
 
