@@ -1,3 +1,5 @@
+require "benchmark"
+
 def mergesort(arr)
   n     = arr.size
   return arr if n <= 1
@@ -32,9 +34,10 @@ def merge(left,right)
   ret
 end
 
-ainput  = [9,5,4,1,8,7,2,6,3,1,123,42,4,3,212,6,14,4,2123,6,7,5,78,4,24,25]
+input  = "a;dsjf;lajfd;lakjlkjnxkvcnlkajheflkja;ldkjflksjfvnakndsf;lkjnsadf".split(//)
 
-input = "come to the dark side, luke".split
-test = mergesort(input)
-
-print input, "\n ==> \n", test
+n=1000
+Benchmark.bm do|x|
+  x.report("mergesort") {n.times do; mergesort(input); end}
+  x.report("standlib ") {n.times do; input.sort; end}
+end
